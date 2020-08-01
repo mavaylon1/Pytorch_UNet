@@ -90,8 +90,8 @@ if __name__ == '__main__':
     import cv2
     import matplotlib.pyplot as plt
     import numpy as np
-    label_path="/Users/matthewavaylon/Research_Gambier/Research_Gambier/Data/Correct_Labels/"
-    data_path="/Users/matthewavaylon/Research_Gambier/Research_Gambier/Data/gamb_orig/"
+    label_path="/Users/mavaylon/Research/Research_Gambier/Data/Correct_Labels/"
+    data_path="/Users/mavaylon/Research/Research_Gambier/Data/gamb_orig/"
 
     names_data=os.listdir(data_path)
     names_data.sort()
