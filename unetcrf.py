@@ -1,7 +1,7 @@
 from crfasrnn.crfrnn import CrfRnn
 from unet import UNet
 
-class Unetcrfnet(unet):
+class Unetcrfnet(UNet):
 
     def __init__(self):
         super(Unetcrfnet, self).__init__()
