@@ -1,7 +1,7 @@
 import torch
 import torch.nn.functional as F
 from unet_git import UNet
-import torch.nn as nn
+
 
 model = UNet(n_classes=2, padding=True, up_mode='upsample')
 optim = torch.optim.Adam(model.parameters())
@@ -34,6 +34,6 @@ for epoch in range(1):
         y=model(x)
         loss = loss_(m(y),gt)
         loss.backward()
-        optim.step()
+        optimizer.step()
         print(loss)
     print(loss)
