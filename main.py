@@ -13,7 +13,6 @@ device=torch.device("cpu")
 model.to(device)
 optimizer= torch.optim.Adam(model.parameters(),.001)
 criterion= nn.CrossEntropyLoss()
-m = nn.Sigmoid()
 
 
 names_data=os.listdir(data_path)
@@ -42,8 +41,13 @@ for epoch in range(1):
         y=model(x)
         #y=torch.log(y+1e-20)
         #print(y)
-        loss = criterion(m(y),gt)
+        loss = criterion(y,gt)
         loss.backward()
         optimizer.step()
+        y=y.detach().numpy()[0,0,:,:]
+        #gray=rgb2gray(y)
+        plt.figure()
+        plt.imshow(y)
+        plt.show()
         print(loss)
     #print(loss)
