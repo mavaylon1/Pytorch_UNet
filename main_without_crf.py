@@ -44,7 +44,7 @@ for epoch in range(10):
         gt=torch.from_numpy(gt).long()
         optimizer.zero_grad()
         y=model(x)
-        loss = criterion(m(y),gt)
+        loss = criterion(y,gt)
         loss.backward()
         optimizer.step()
         #print(y.detach().numpy()[0,:,:,:].shape)

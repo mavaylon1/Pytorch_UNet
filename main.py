@@ -44,10 +44,5 @@ for epoch in range(1):
         loss = criterion(y,gt)
         loss.backward()
         optimizer.step()
-        y=y.detach().numpy()[0,0,:,:]
-        #gray=rgb2gray(y)
-        plt.figure()
-        plt.imshow(y)
-        plt.show()
         print(loss)
     #print(loss)
