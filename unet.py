@@ -46,26 +46,26 @@ class UNet(nn.Module):
         #bs, c, h, w
         #encoder
         x1=self.down_conv_1(image) #
-        print("First Conv Layer",x1.size())
+        #print("First Conv Layer",x1.size())
         x2=self.max_pool_2x2(x1)
         x3=self.down_conv_2(x2) #
-        print("Second",x3.size())
+        #print("Second",x3.size())
         x4=self.max_pool_2x2(x3)
         x5=self.down_conv_3(x4) #
-        print("third", x5.size())
+        #print("third", x5.size())
 
 
         x6=self.max_pool_2x2(x5)
         x7=self.down_conv_4(x6)
-        print("x7",x7.size()) #
+        #print("x7",x7.size()) #
         x8=self.max_pool_2x2(x7)
         x9=self.down_conv_5(x8)
 
         #decoder
         x= self.up_trans_1(x9)
-        print("x to bo concat with x7",x.size())
+        #print("x to bo concat with x7",x.size())
         x =self.up_conv_1(torch.cat([x,x7],1))
-        print("x7 concat",x.size())
+        #print("x7 concat",x.size())
 
         x= self.up_trans_2(x)
 
@@ -81,10 +81,5 @@ class UNet(nn.Module):
 
         x=self.out(x)
 
-        print("output", x.size())
+        #print("output", x.size())
         return x
-
-if __name__ == '__main__':
-    image= torch.rand((1,1,512,512))
-    model=UNet()
-    print(model(image))
